@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>cn.edu.saif.ccm</groupId>
+		<artifactId>root</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>build</artifactId>
+	<packaging>ear</packaging>
+	<name>Build</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.8</version>
+				<configuration>
+					<applicationName>ccm</applicationName>
+					<addMavenDescriptor>false</addMavenDescriptor>
+					<defaultJavaBundleDir>lib</defaultJavaBundleDir>
+					<skinnyWars>false</skinnyWars>
+					<version>5</version>
+
+					<modules>
+						<webModule>
+							<groupId>cn.edu.saif.ccm</groupId>
+							<artifactId>rest</artifactId>
+							<contextRoot>/ccm/api</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>cn.edu.saif.ccm</groupId>
+							<artifactId>web</artifactId>
+							<contextRoot>/ccm/web</contextRoot>
+						</webModule>
+					</modules>
+
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+
+	<dependencies>
+		<dependency>
+			<groupId>cn.edu.saif.shared</groupId>
+			<artifactId>shared</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>domains</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>service</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>persistence</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>connector</artifactId>
+			<version>1.0-SNAPSHOT</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>rest</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+
+		<dependency>
+			<groupId>cn.edu.saif.ccm</groupId>
+			<artifactId>web</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+		
+	</dependencies>
+</project>
